@@ -1,4 +1,5 @@
 package edu.cscc;
+
 import java.util.Random;
 
 /**
@@ -6,18 +7,16 @@ import java.util.Random;
  */
 public class RPSLSpock {
 
-    static Random rand = new Random(System.currentTimeMillis());
-
     public static final String ROCK = "rock";
     public static final String PAPER = "paper";
     public static final String SCISSORS = "scissors";
     public static final String LIZARD = "lizard";
     public static final String SPOCK = "spock";
+    static Random rand = new Random(System.currentTimeMillis());
 
     /**
-     *
      * @param pick tests input to make sure user input a valid pick
-     * @return
+     * @return boolean confirming a valid pick or rejecting invalid
      */
     public static boolean isValidPick(String pick) {
         if (pick == null) {
@@ -31,7 +30,9 @@ public class RPSLSpock {
                 SPOCK.equalsIgnoreCase(pick));
     }
 
-    // TODO remove this comment and document this method
+    /**
+     * @return this method generates a random pick value for the computer player
+     */
     public static String generatePick() {
         String pick = null;
         switch (rand.nextInt(5)) {
@@ -54,8 +55,12 @@ public class RPSLSpock {
         return pick;
     }
 
-    // TODO remove this comment and document this method
-    public static boolean isComputerWin(String c_pick,String h_pick) {
+    /**
+     * @param c_pick computer player pick
+     * @param h_pick human player pick
+     * @return
+     */
+    public static boolean isComputerWin(String c_pick, String h_pick) {
         h_pick = h_pick.toLowerCase();
         return ((ROCK.equals(c_pick) && (SCISSORS.equals(h_pick) || LIZARD.equals(h_pick))) ||
                 (PAPER.equals(c_pick) && (ROCK.equals(h_pick) || SPOCK.equals(h_pick))) ||

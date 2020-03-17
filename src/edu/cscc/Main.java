@@ -16,6 +16,7 @@ public class Main {
 
     /**
      * Main method for running Rock, Paper, Scissors, Lizard, Spock
+     *
      * @param args run-time arguments
      */
     public static void main(String[] args) {
